@@ -17,7 +17,7 @@ void main() {
 	std::ifstream fichierMenu("entiers.txt", std::ios::in);
 	if (!fichierMenu.fail())
 	{
-		std::cout << "marche po esty";
+		std::cout << "un meilleur language svp";
 	}
 	fichierMenu.close();
 

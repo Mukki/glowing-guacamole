@@ -3,7 +3,7 @@
 void main() {
 
 	
-	int entre;
+	char entre;
 	int valInserer, valSuprimer, valAscendant, valDescendant;
 
 
@@ -14,8 +14,6 @@ void main() {
 	std::cout << "5 : Afficher les ascendants de l element de valeur d." << std::endl;
 	std::cout << "6 : Afficher les descendants de l element de valeur d." << std::endl;
 
-	std::cin >> entre;
-
 	std::ifstream fichierMenu("entiers.txt", std::ios::in);
 	if (!fichierMenu.fail())
 	{
@@ -24,15 +22,17 @@ void main() {
 	fichierMenu.close();
 
 	ABR fct;
+	while (1) {
+		std::cin >> entre;
+		switch (entre) {
 
-	switch (entre) {
-
-	case 1: std::cout << endl << "Ecrivez la valeur a inserer:"; std::cin >> valInserer;	fct.Inserer(valInserer); break;
-	case 2: std::cout << endl << "Quelle valeur de l'arbre voulez-vous supprimer?:"; std::cin >> valSuprimer; fct.Supprimer(valSuprimer); break;
-	case 3: std::cout << endl << "Arbre binaire:"; fct.Afficher_Arbre(); break;
-	case 4: std::cout << endl << "Hauteur de larbre binaire:"; fct.Afficher_hauteur(); break;
-	case 5: std::cout << endl << "Valeur d: "; cin >> valAscendant; fct.Afficher_Ascendant(valAscendant); break;
-	case 6: std::cout << endl << "Valeur d: "; cin >> valDescendant; fct.Affiche_Descendant(valDescendant); break;
-	default:  std::cout << "Error" << endl; main(); break;
+		case '1': std::cout << std::endl << "Ecrivez la valeur a inserer:"; std::cin >> valInserer;	fct.Inserer(valInserer); break;
+		case '2': std::cout << std::endl << "Quelle valeur de l'arbre voulez-vous supprimer?:"; std::cin >> valSuprimer; fct.Supprimer(valSuprimer); break;
+		case '3': std::cout << std::endl << "Arbre binaire:"; fct.Afficher_Arbre(); break;
+		case '4': std::cout << std::endl << "Hauteur de larbre binaire:"; fct.Afficher_hauteur(); break;
+		case '5': std::cout << std::endl << "Valeur d: "; std::cin >> valAscendant; fct.Afficher_Ascendant(valAscendant); break;
+		case '6': std::cout << std::endl << "Valeur d: "; std::cin >> valDescendant; fct.Affiche_Descendant(valDescendant); break;
+		default:  std::cout << "Error" << std::endl; break;
+		}
 	}
 }  
